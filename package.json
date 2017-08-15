@@ -8,8 +8,13 @@
     "start": "electron-forge start",
     "package": "electron-forge package",
     "make": "electron-forge make",
-    "lint": "eslint src"
-  },
+    "lint": "eslint src",
+    "build-darwin"  : "electron-packager . electron-app --platform=darwin --icon Icons/unicorn.icns --overwrite --asar --ignore=node_modules/electron-*",
+    "build-mas"     : "electron-packager . electron-app --platform=mas --icon Icons/unicorn.icns --overwrite --asar --ignore=node_modules/electron-*",
+    "build-linux"   : "electron-packager . electron-app --platform=linux --icon Icons/unicorn.png --overwrite --asar --ignore=node_modules/electron-*",
+    "build-win32"   : "electron-packager . electron-app --platform=win32 --icon Icons/unicorn.ico --overwrite --asar --ignore=node_modules/electron-* ",
+    "build"         : "npm run build-darwin && npm run build-mas && npm run build-linux && npm run build-win32"
+    },
   "keywords": [],
   "author": "brianamarie",
   "license": "MIT",
@@ -52,6 +57,7 @@
     "babel-plugin-transform-async-to-generator": "^6.24.1",
     "babel-preset-env": "^1.6.0",
     "babel-preset-react": "^6.24.1",
+    "electron-packager": "^8.7.2",
     "electron-prebuilt-compile": "1.7.5",
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "^15.1.0",
